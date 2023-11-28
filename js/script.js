@@ -49,6 +49,7 @@ const vueConfig = {
       slides,
       prova: 'pippo',
       currentSlider: 0,
+      testLifeCycle: 'Sono il test della tua vita',
     };
   },
   methods: {
@@ -76,6 +77,68 @@ const vueConfig = {
       this.currentSlider = index;
     },
   },
+  // updated() {
+  //   console.log('updated');
+  //   console.log(this.testLifeCycle);
+  //   console.log(this.currentSlider);
+
+  //   if (this.currentSlider === 3) {
+  //     console.log('stai esagerando');
+  //   }
+  // },
+  // beforeCreate() {
+  //   console.log('before create');
+  //   console.log(this.testLifeCycle);
+  // },
+  // created() {
+  //   console.log('created');
+  //   console.log(this.testLifeCycle);
+  // },
+  // beforeMount() {
+  //   console.log('beforeMount');
+  //   console.log(this.testLifeCycle);
+  // },
+  mounted() {
+    console.log('mounted');
+    console.log(this.testLifeCycle);
+
+    console.log('contesto applicazione', this);
+
+    // setInterval(function () {
+    //   console.log('normal', this);
+    // }, 1000);
+
+    // setInterval(() => {
+    //   this.next();
+    // }, 3000);
+
+    setInterval(this.next, 3000);
+
+    // setInterval(function () {
+    //   this.next();
+    //   // console.log('ciao');
+    // }, 3000);
+
+    //scope che viene ereditato dalla arrow function
+    // setInterval(() => {
+    //   console.log(this);
+    //   this.next();
+    // }, 3000);
+  },
+  // beforeUpdate() {
+  //   console.log('beforeUpdate');
+  //   console.log(this.testLifeCycle);
+  //   console.log(this.currentSlider);
+  // },
+
+  // beforeUnmount() {
+  //   console.log('beforeUnmount');
+  //   console.log(this.testLifeCycle);
+  // },
+  // unmounted() {
+  //   console.log('unmounted');
+  //   console.log(this.testLifeCycle);
+  // },
 };
 
 //istanziamo create app

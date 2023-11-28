@@ -50,6 +50,7 @@ const vueConfig = {
       prova: 'pippo',
       currentSlider: 0,
       testLifeCycle: 'Sono il test della tua vita',
+      currentInterval: null,
     };
   },
   methods: {
@@ -75,6 +76,17 @@ const vueConfig = {
       console.log('set image');
       console.log(index);
       this.currentSlider = index;
+    },
+    stopAutoPlay() {
+      console.log('stoppo lo slider');
+      // console.log(this.currentInterval);
+      clearInterval(this.currentInterval);
+    },
+    startAutoPlay() {
+      // console.log('starto lo slider');
+      // if (this.currentInterval) return;
+
+      this.currentInterval = setInterval(this.next, 3000);
     },
   },
   // updated() {
@@ -112,7 +124,7 @@ const vueConfig = {
     //   this.next();
     // }, 3000);
 
-    setInterval(this.next, 3000);
+    this.startAutoPlay();
 
     // setInterval(function () {
     //   this.next();

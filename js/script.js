@@ -48,7 +48,28 @@ const vueConfig = {
       title,
       slides,
       prova: 'pippo',
+      currentSlider: 0,
     };
+  },
+  methods: {
+    next() {
+      console.log('next');
+      this.currentSlider++;
+      //this.currentSlider = this.currentSlider + 1;
+      //this.currentSlider += 1;
+      if (this.currentSlider > this.slides.length - 1) {
+        this.currentSlider = 0;
+      }
+    },
+    prev() {
+      console.log('prev');
+      this.currentSlider--;
+      //this.currentSlider = this.currentSlider - 1;
+      //this.currentSlider -= 1;
+      if (this.currentSlider < 0) {
+        this.currentSlider = this.slides.length - 1;
+      }
+    },
   },
 };
 
@@ -65,3 +86,14 @@ myApp.mount('#app');
 // sum2Number(num1, num2);
 
 // // sum2Number(prompt('Inserisci il tuo numero'), prompt('Inserisci il tuo numero'))
+
+// Element.addEventListener('click', next);
+// Element.addEventListener('click', prev);
+
+// Element.addEventListener('click', function(){
+//   next();
+// })
+
+// Element.addEventListener('click', function () {
+//   prev();
+// });

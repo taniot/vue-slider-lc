@@ -70,6 +70,11 @@ const vueConfig = {
         this.currentSlider = this.slides.length - 1;
       }
     },
+    setImage(index) {
+      console.log('set image');
+      console.log(index);
+      this.currentSlider = index;
+    },
   },
 };
 
